@@ -1,7 +1,10 @@
 package com.adrianmartinez.recuev1;
+import com.adrianmartinez.recuev1.p02ej05.Practica2Ej5;
+import com.adrianmartinez.recuev1.p02ej05.Registro;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.util.Scanner;
 
 public class Practica2 {
@@ -31,10 +34,24 @@ public class Practica2 {
                     Practica2Ej3.ejercicio4();
                     break;
                 case "5":
+                    practica5();
                     break;
                 case "6":
                     break;
             }
-        } while(Integer.parseInt(opciones)<=6);
+        } while(Integer.parseInt(opciones) < 6);
+    }
+
+    private static void practica5() throws IOException {
+        Practica2Ej5 practica2Ej5 = new Practica2Ej5(5);
+        Registro registroAInsertar = new Registro(
+                "7043853K",
+                "Abelardo",
+                "León",
+                "González",
+                90
+        );
+        String pathToBD =System.getProperty("user.dir") + FileSystems.getDefault().getSeparator() + "registros.dat";
+        practica2Ej5.insertarRegistro(pathToBD, registroAInsertar);
     }
 }
